@@ -16,6 +16,7 @@ Début
 Fin
 """
 import numpy as np
+import A2_display
 
 # Tant que l’utilisateur décide de tester un tableau de contraintes faire
 runtimeKey = 1
@@ -24,7 +25,7 @@ while runtimeKey:
     selectTable = int(input("Choisir le tableau à faire (1-12): "))
     while (selectTable < 1) or (selectTable > 12):
         print("Entrée invalide. Veuillez réessayer.\n")
-        selectTable = input("Choisir le tableau à faire (1-12): ")
+        selectTable = int(input("Choisir le tableau à faire (1-12): "))
     # Lire le tableau de contraintes sur fichier et le stocker en mémoire
     filename = "Graphes/table " + str(selectTable) + ".txt"
     # Ouvrir le fichier et lire son contenu
@@ -46,7 +47,18 @@ while runtimeKey:
     taskAlpha = []
     taskOmega = []
     spacer = ", "
-    printableTable = [["Num taches"],["Durée"],["Prédécesseurs"]]
+    printTable = [["Num taches", "Durée", "Prédécesseurs"]]
+    print()
+    for i in range(0, len(listeContraintes)):
+        printTable.append([])
+        printTable[i+1].append(str(listeContraintes[i][0]))
+        printTable[i+1].append(str(listeContraintes[i][1]))
+        for j in range(2, len(listeContraintes[i])):
+            printTable[i+1].append(str(listeContraintes[i][j]))
+    print(printTable)
+
+    """"
+    printableTable = [["Num taches"], ["Durée"], ["Prédécesseurs"]]
     for i in range(1, nTasks-1):
         printableTable[0].append(str(listeContraintes[i-1][0]))
         printableTable[1].append(str(listeContraintes[i-1][1]))
@@ -59,7 +71,7 @@ while runtimeKey:
                 printableTable[2][i].join([str(listeContraintes[i-1][u]), spacer])
             printableTable[2][i].rstrip(", ")
     print(printableTable)
-
+    """
 
 
 
