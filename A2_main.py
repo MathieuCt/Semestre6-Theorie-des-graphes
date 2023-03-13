@@ -16,7 +16,8 @@ Début
 Fin
 """
 import numpy as np
-import A2_display
+from A2_display import *
+from A2_dataConverter import *
 
 # Tant que l’utilisateur décide de tester un tableau de contraintes faire
 runtimeKey = 1
@@ -51,11 +52,16 @@ while runtimeKey:
     print()
     for i in range(0, len(listeContraintes)):
         printTable.append([])
-        printTable[i+1].append(str(listeContraintes[i][0]))
-        printTable[i+1].append(str(listeContraintes[i][1]))
+        printTable[i + 1].append(str(listeContraintes[i][0]))
+        printTable[i + 1].append(str(listeContraintes[i][1]))
         for j in range(2, len(listeContraintes[i])):
-            printTable[i+1].append(str(listeContraintes[i][j]))
+            printTable[i + 1].append(str(listeContraintes[i][j]))
     print(printTable)
+
+    # Créer la matrice de valeurs
+    matriceValeurs = contraintesVersMatriceValeurs(listeContraintes)
+    # Afficher la matrice de valeurs
+    printMat(matriceValeurs)
 
     """"
     printableTable = [["Num taches"], ["Durée"], ["Prédécesseurs"]]
@@ -72,9 +78,6 @@ while runtimeKey:
             printableTable[2][i].rstrip(", ")
     print(printableTable)
     """
-
-
-
 
     # Test utilisateur
     runtimeContinue = str(input("Voulez-vous lire un autre tableau ? y/n "))
