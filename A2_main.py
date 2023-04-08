@@ -18,6 +18,8 @@ Fin
 import numpy as np
 from A2_display import *
 from A2_dataConverter import *
+from A2_calendrierMarges import *
+from A2_cheminsCritiques import *
 
 # Tant que l’utilisateur décide de tester un tableau de contraintes faire
 runtimeKey = 1
@@ -78,6 +80,11 @@ while runtimeKey:
             printableTable[2][i].rstrip(", ")
     print(printableTable)
     """
+    # Calculer le calendrier au plus tôt, le calendrier au plus tard et les marges
+    calendrierPlusTotPlusTardMarge(matriceValeurs)
+
+    # Calculer le calendrier au plus tôt, le calendrier au plus tard et les marges
+    cheminsCritique(matriceValeurs)
 
     # Test utilisateur
     runtimeContinue = str(input("Voulez-vous lire un autre tableau ? y/n "))
