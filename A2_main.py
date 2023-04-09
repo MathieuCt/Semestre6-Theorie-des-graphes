@@ -44,7 +44,7 @@ while runtimeKey:
     # Calculer le calendrier au plus tôt, le calendrier au plus tard et les marges
     calendrierPlusTotPlusTardMarge(matriceValeurs)
     # Calculer le calendrier au plus tôt, le calendrier au plus tard et les marges
-    # cheminsCritique(matriceValeurs)
+    cheminsCritique(matriceValeurs)
 
     rangSommet(listeContraintes)
     # Test utilisateur
