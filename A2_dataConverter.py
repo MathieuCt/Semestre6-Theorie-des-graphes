@@ -18,5 +18,4 @@ def contraintesVersMatriceValeurs(contraintes):
             for k in contraintes[i][2:]:
                     if k == j:
                         matriceValeurs[i][j] = contraintes[i][1]
-    print(matriceValeurs)
     return matriceValeurs

@@ -16,7 +16,8 @@ Début
 Fin
 """
 import numpy as np
-from A2_display import *
+from A2_reader import reader
+from A2_display import printContraintes, printVal
 from A2_dataConverter import *
 from A2_calendrierMarges import *
 from A2_cheminsCritiques import *
@@ -26,33 +27,17 @@ from A2_cli import *
 runtimeKey = 1
 while runtimeKey:
     # Choix de l'utilisateur et construction du tableau de contrainte
-    listeContraintes = selection()
+    txtnum = selection()
+    # Créer la matrice de containtes
+    listeContraintes = reader(txtnum)
+    printContraintes(listeContraintes)
     # Créer la matrice de valeurs
     matriceValeurs = contraintesVersMatriceValeurs(listeContraintes)
-    # Afficher la matrice de valeurs
-    printMat(matriceValeurs)
-
-    """"
-    printableTable = [["Num taches"], ["Durée"], ["Prédécesseurs"]]
-    for i in range(1, nTasks-1):
-        printableTable[0].append(str(listeContraintes[i-1][0]))
-        printableTable[1].append(str(listeContraintes[i-1][1]))
-        taskLength = len(listeContraintes[i-1])
-        if taskLength == 3:
-            printableTable[2].append(str(listeContraintes[i - 1][0]))
-        elif taskLength > 3:
-            printableTable[2].append(str(listeContraintes[i - 1][0]) + ", ")
-            for u in range(2, taskLength):
-                printableTable[2][i].join([str(listeContraintes[i-1][u]), spacer])
-            printableTable[2][i].rstrip(", ")
-    print(printableTable)
-    """
+    printVal(matriceValeurs)
     # Calculer le calendrier au plus tôt, le calendrier au plus tard et les marges
     calendrierPlusTotPlusTardMarge(matriceValeurs)
-
     # Calculer le calendrier au plus tôt, le calendrier au plus tard et les marges
     cheminsCritique(matriceValeurs)
-
     # Test utilisateur
     runtimeKey = continuer()
 
