@@ -11,11 +11,9 @@ def contraintesVersMatriceValeurs(contraintes):
     :return: Matrice de valeurs.
     """
     # Créer une matrice de valeurs vide
-    matriceValeurs = np.full([len(contraintes), len(contraintes)],-1)
+    matriceValeurs = np.full([len(contraintes) + 2, len(contraintes)+ 2],-1)
     # Parcourir chaque ligne de la matrice de contraintes
     for i in range(0, len(contraintes)):
-        for j in range(0, len(contraintes)):
-            for k in contraintes[i][2:]:
-                    if k == j:
-                        matriceValeurs[i][j] = contraintes[i][1]
+        for j in range(2, len(contraintes[i])):
+            matriceValeurs[contraintes[i][j]][i+1] = contraintes[i][1]
     return matriceValeurs

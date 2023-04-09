@@ -16,6 +16,7 @@ Début
 Fin
 """
 import numpy as np
+from A2_ordonnancement import ordonnancement
 from A2_reader import reader
 from A2_display import printContraintes, printVal, printNum
 from A2_dataConverter import *
@@ -35,6 +36,11 @@ while runtimeKey:
     # Créer la matrice de valeurs
     matriceValeurs = contraintesVersMatriceValeurs(listeContraintes)
     printVal(matriceValeurs)
+    # Si le graphe est ordonnable
+    if ordonnancement(matriceValeurs):
+        print("le graphe est un graphe d'ordonnancement")
+    else :
+        print("le graphe n'est pas un graphe d'ordonnancement")
     # Calculer le calendrier au plus tôt, le calendrier au plus tard et les marges
     calendrierPlusTotPlusTardMarge(matriceValeurs)
     # Calculer le calendrier au plus tôt, le calendrier au plus tard et les marges
