@@ -40,14 +40,24 @@ def selection():
     print(printTable)
     
     return listeContraintes
+
+
 def continuer():
-    runtimeContinue = str(input("Voulez-vous lire un autre tableau ? y/n "))
-    if runtimeContinue == 'y' or runtimeContinue == 'Y':
-        runtimeKey = 1
-    elif runtimeContinue == 'n' or runtimeContinue == 'N':
-        runtimeKey = 0
-    else:
-        while runtimeContinue != 'y' or 'Y' or 'n' or 'N':
-            print("Erreur de syntaxe. Veuillez entrer Y ou N., vous avez entré: " + runtimeContinue)
-            runtimeContinue = str(input("Voulez-vous lire un autre tableau ? y/n "))
-    return runtimeKey
+    """
+    Demande à l'utilisateur s'il veut continuer ou non.
+    :return: 1 si l'utilisateur veut continuer, 0 sinon.
+    """
+    runtimeContinue = ""
+    
+    # Continuer tant que la réponse n'est pas valide
+    while runtimeContinue != 'y' or 'Y' or 'n' or 'N':
+        # Demander à l'utilisateur s'il veut continuer
+        runtimeContinue = str(input("Voulez-vous lire un autre tableau ? y/n "))
+        if runtimeContinue == 'y' or runtimeContinue == 'Y':
+            # L'utilisateur veut continuer
+            return 1
+        elif runtimeContinue == 'n' or runtimeContinue == 'N':
+            # L'utilisateur ne veut pas continuer
+            return 0
+        # L'utilisateur n'a pas entré une réponse valide
+        print("Erreur de syntaxe. Veuillez entrer Y ou N., vous avez entré: " + "\""+ runtimeContinue+ "\"")
