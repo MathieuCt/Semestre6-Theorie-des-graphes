@@ -17,7 +17,7 @@ Fin
 """
 import numpy as np
 from A2_reader import reader
-from A2_display import printContraintes, printVal
+from A2_display import printContraintes, printVal, printNum
 from A2_dataConverter import *
 from A2_calendrierMarges import *
 from A2_cheminsCritiques import *
@@ -27,9 +27,10 @@ from A2_cli import *
 runtimeKey = 1
 while runtimeKey:
     # Choix de l'utilisateur et construction du tableau de contrainte
-    txtnum = selection()
+    txtNum = selection()
+    printNum(txtNum)
     # Créer la matrice de containtes
-    listeContraintes = reader(txtnum)
+    listeContraintes = reader(txtNum)
     printContraintes(listeContraintes)
     # Créer la matrice de valeurs
     matriceValeurs = contraintesVersMatriceValeurs(listeContraintes)
