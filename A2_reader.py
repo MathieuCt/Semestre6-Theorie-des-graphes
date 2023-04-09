@@ -18,21 +18,4 @@ def reader(txtNum):
         nombres = [int(n) for n in nombres]
         # Ajouter la liste de nombres à la matarice de contraintes
         listeContraintes.append(nombres)
-    """
-    # Afficher la matrice de contraintes en liste
-    print(listeContraintes)
-    nTasks = listeContraintes[-1][0]
-    taskAlpha = []
-    taskOmega = []
-    spacer = ", "
-    printTable = [["Num taches", "Durée", "Prédécesseurs"]]
-    print()
-    for i in range(0, len(listeContraintes)):
-        printTable.append([])
-        printTable[i + 1].append(str(listeContraintes[i][0]))
-        printTable[i + 1].append(str(listeContraintes[i][1]))
-        for j in range(2, len(listeContraintes[i])):
-            printTable[i + 1].append(str(listeContraintes[i][j]))
-    print(printTable)
-    """
     return listeContraintes

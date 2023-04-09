@@ -39,14 +39,15 @@ while runtimeKey:
     # Si le graphe est ordonnable
     if ordonnancement(matriceValeurs):
         print("le graphe est un graphe d'ordonnancement")
+        rangSommet(listeContraintes)
+        # Calculer le calendrier au plus tôt, le calendrier au plus tard et les marges
+        calendrierPlusTotPlusTardMarge(matriceValeurs)
+        # Calculer le calendrier au plus tôt, le calendrier au plus tard et les marges
+        cheminsCritique(matriceValeurs)
+
+
     else :
         print("le graphe n'est pas un graphe d'ordonnancement")
-    # Calculer le calendrier au plus tôt, le calendrier au plus tard et les marges
-    calendrierPlusTotPlusTardMarge(matriceValeurs)
-    # Calculer le calendrier au plus tôt, le calendrier au plus tard et les marges
-    # cheminsCritique(matriceValeurs)
-
-    rangSommet(listeContraintes)
     # Test utilisateur
     runtimeKey = continuer()
 

@@ -14,7 +14,7 @@ def printContraintes(listeContraintes):
     :return:
     """
     # ouvrire le fichier
-    with open(filename, "a",encoding='utf-8') as txtfile:
+    with open(filename, "a", encoding='utf-8') as txtfile:
         print(" \n # Liste des contraintes : \n")
         txtfile.write(" \n # Liste des contraintes : \n\n")
         # Afficher l'en-tête
