@@ -22,7 +22,7 @@ from A2_dataConverter import *
 from A2_calendrierMarges import *
 from A2_cheminsCritiques import *
 from A2_cli import *
-
+from A2_rangSommet import *
 # Tant que l’utilisateur décide de tester un tableau de contraintes faire
 runtimeKey = 1
 while runtimeKey:
@@ -38,7 +38,12 @@ while runtimeKey:
     # Calculer le calendrier au plus tôt, le calendrier au plus tard et les marges
     calendrierPlusTotPlusTardMarge(matriceValeurs)
     # Calculer le calendrier au plus tôt, le calendrier au plus tard et les marges
-    cheminsCritique(matriceValeurs)
+    # cheminsCritique(matriceValeurs)
+
+    rangSommet(listeContraintes)
     # Test utilisateur
     runtimeKey = continuer()
+
+
+
 

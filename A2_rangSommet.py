@@ -2,33 +2,38 @@
 Contient le calcul des rangs de chaque sommet.
 """
 import copy
-from A2_main import *
+import numpy as np
+
+# 1. Créer un tableau avec tous les rangs initialisés à -1, r = 0 OK
+# 2. tant qu'il y a un rang qui contient -1, boucle OK
+# 3. copie de S dans une nouvelle variable OK
+# 4. Si notre taille, c'est 2 -> on met le rang, et pour tous les vertices qui le continennent on met 0 OK
+# 5. faire une autre boucle après les modifications et del tous les nombres qui ont 0
+# 6. r = r+1
 
 def rangSommet(S):
-    r = 1
+    r = 0
     s = copy.deepcopy(S)  # copie de la liste de contraintes prise en paramètre
-    sommet = 0
-    rang = np.zeros(shape=len(S))  # nouveau tableau qui prend la taille de la liste de contraintes prise en paramètres
-                                   # ce tableau va contenir le rang de chaque sommet
+    rang = np.full(len(S), -1)  # nouveau tableau qui prend la taille de la liste de contraintes prise en paramètres
+                                    # ce tableau va contenir le rang de chaque sommet
 
-    for i in range(0, len(s)):  # je calcule les sommets qui ont un rang 0
-        if len(s[i]) == 2:
-            rang[i] = 0
-            sommet = s[i][0]
-            for n in range(len(s)):
-                for j in range(len(s[n])):
-                    if s[n][j] == sommet:
-                        s[n][j] = 0
+    while -1 in rang:
+        for i in range(len(s)):  # calcul des rangs de chaque sommets
+            if len(s[i]) == 2 and rang[i] == -1:
+                rang[i] = r
+                for n in range(len(s)):
+                    for j in range(2, len(s[n])):
+                        if s[n][j] == s[i][0]:
+                            s[n][j] = 0
 
-    for k in range(0, len(s)):
-        if len(s[k]) == 2:
-            for a in range(len(s)):
-                for b in range(2, len(s[a])):
-                    if s[a][b] != 0:
-                        break
+        for k in range(len(s)):
+            b = 2
+            while b < len(s[k]):
+                if s[k][b] == 0:
+                    del s[k][b]
+                else:
+                    b = b + 1
+        r = r + 1
 
-    #for m in range(rang):
-        #print("Le sommet ", m , "a pour rang ", rang[m], \n)
-
-
-print(rangSommet(listeContraintes))
+    for m in range(len(rang)):
+        print("Le sommet", m, "a pour rang", rang[m])
