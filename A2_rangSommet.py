@@ -36,4 +36,4 @@ def rangSommet(S):
         r = r + 1
 
     for m in range(len(rang)):
-        print("Le sommet", m, "a pour rang", rang[m])
+        print("Le sommet", m + 1, "a pour rang", rang[m])
