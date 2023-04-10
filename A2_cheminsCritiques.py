@@ -1,8 +1,9 @@
 """
-Contient les fonctions pour calculer le(s) chemin(s) critique(s) et les afficher.
+Contient les fonctions pour calculer le(s) chemin(s) critique(s).
 """
 
 import numpy as np
+from A2_display import printChemin, printCheminsCritiques
 
 
 def cheminsCritique(matrice):
@@ -22,7 +23,7 @@ def cheminsCritique(matrice):
             chemin_critique.append(i)
 
     # On affiche le(s) chemin(s) critique(s)
-    print("\nChemin(s) critique(s):")
+    printCheminsCritiques()
     for tache in chemin_critique:
         chemin = [tache]
         temp = [tache]
@@ -36,4 +37,4 @@ def cheminsCritique(matrice):
                     chemin.insert(0, i)
                     # On ajoute la tâche actuelle à la liste temporaire pour chercher ses tâches précédentes
                     temp.append(i)
-        print(chemin)
+        printChemin(chemin)

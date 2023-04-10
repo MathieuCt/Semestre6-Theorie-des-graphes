@@ -18,7 +18,7 @@ Fin
 import numpy as np
 from A2_ordonnancement import ordonnancement
 from A2_reader import reader
-from A2_display import printContraintes, printVal, printNum
+from A2_display import printContraintes, printVal, printNum, printSeparateur
 from A2_dataConverter import *
 from A2_calendrierMarges import *
 from A2_cheminsCritiques import *
@@ -36,19 +36,16 @@ while runtimeKey:
     # Créer la matrice de valeurs
     matriceValeurs = contraintesVersMatriceValeurs(listeContraintes)
     printVal(matriceValeurs)
-    # Si le graphe est ordonnable
+    # Si le graphe est un graphes d'ordonnancement
     if ordonnancement(matriceValeurs):
-        print("le graphe est un graphe d'ordonnancement")
+        # Calculer les rangs des sommets
         rangSommet(listeContraintes)
         # Calculer le calendrier au plus tôt, le calendrier au plus tard et les marges
         calendrierPlusTotPlusTardMarge(matriceValeurs)
-        # Calculer le calendrier au plus tôt, le calendrier au plus tard et les marges
+        # Calculer les chemins critiques
         cheminsCritique(matriceValeurs)
-
-
-    else :
-        print("le graphe n'est pas un graphe d'ordonnancement")
     # Test utilisateur
+    printSeparateur()
     runtimeKey = continuer()
 
 

@@ -3,6 +3,7 @@ Permet de dire si un graphe peut servir de graphe d'ordonnancement.
 """
 
 import numpy as np
+from A2_display import printOrdonnancemant
 
 def ordonnancement(matriceValeurs):
     """
@@ -11,8 +12,7 @@ def ordonnancement(matriceValeurs):
     :return: True si le graphe est ordonnanble, False sinon.
     """
     # Un graphe est un graphe d'ordonnancement si il ne contient pas de circuit et si il ne contient pas d'arc à valeurs négatives.
-    print( "circuit(matriceValeurs) = " + str(circuit(matriceValeurs)))
-    print( "arcNegatif(matriceValeurs) = " + str(arcNegatif(matriceValeurs)))
+    printOrdonnancemant(circuit(matriceValeurs), arcNegatif(matriceValeurs))
     if circuit(matriceValeurs) and arcNegatif(matriceValeurs):
         return True
     return False
@@ -43,7 +43,6 @@ def circuit(matriceValeurs):
     # Il y a un circuit s'il existe un sommet i tel que C[i,i] = 1
     for i in range(0, n-1):
         if C[i][i] == 1:
-            print( "Il y a un circuit" )
             return False
 
     return True

@@ -4,6 +4,7 @@ Contient les fonctions pour calculer le calendrier au plus tôt, au plus tard et
 
 
 import numpy as np
+from A2_display import printCalendrier
 
 def calendrierPlusTotPlusTardMarge(matrice):
     """
@@ -43,7 +44,7 @@ def calendrierPlusTotPlusTardMarge(matrice):
     # Calcul des marges
     for i in range(nb_activites):
         marges[i] = plus_tard[i] - plus_tot[i]
+    
+    printCalendrier(plus_tot, plus_tard, marges)
 
-    print("\nCalendrier au plus tôt:", plus_tot)
-    print("Calendrier au plus tard:", plus_tard)
-    print("Marges:", marges)
+    

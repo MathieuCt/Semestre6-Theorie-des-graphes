@@ -3,6 +3,7 @@ Contient le calcul des rangs de chaque sommet.
 """
 import copy
 import numpy as np
+from A2_display import printRang
 
 
 # 1. Créer un tableau avec tous les rangs initialisés à -1, r = 0
@@ -36,5 +37,4 @@ def rangSommet(S):
                     b = b + 1
         r = r + 1
 
-    for m in range(len(rang)):
-        print("Le sommet", m + 1, "a pour rang", rang[m])
+    printRang(rang)
