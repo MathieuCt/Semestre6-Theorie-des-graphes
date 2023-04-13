@@ -53,7 +53,7 @@ def arcNegatif(matriceValeurs):
     """
     Vérifie si un graphe contient un arc négatif.
     :param matriceValeurs: Matrice de valeurs.
-    :return: True si le graphe contient un arc négatif, False sinon.
+    :return: False si le graphe contient un arc négatif, True sinon.
     """
     # Parcours de la matrice de valeurs
     for i in range(0, len(matriceValeurs)):
